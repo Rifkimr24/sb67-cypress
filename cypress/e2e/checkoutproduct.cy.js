@@ -1,16 +1,21 @@
-describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('https://www.demoblaze.com/')
+const homePage = require('../support/pageObject/homePage/homePage');
+const signinPage = require('../support/pageObject/singinPage/signinPage');
+const dataUser = require('../support/dataUser/data');
 
-    cy.xpath('//a[@id="login2"]').click();
-    cy.xpath('//h5[@id="logInModalLabel"]').should('exist');
-    cy.wait(5000);
-    cy.xpath('//input[@id="loginusername"]').type('rifki1993');
-    cy.wait(5000);
-    cy.xpath('//input[@id="loginpassword"]').type('Bandung1993!');
-    cy.wait(5000);
-    cy.xpath('//button[@onclick="logIn()"]').click();
-    cy.xpath('//a[@id="nameofuser"]').should('exist');
+
+describe('checkout product', () => {
+  it('login user', () => {
+      homePage.goTohomePage();
+      homePage.clisksignMenu();
+      signinPage.assertionsigninMenu();
+      signinPage.inputloginuserName();
+      signinPage.inputloginpassword();
+      signinPage.clickButtonsignin();
+      signinPage.assertionButtonsignin();
+      
+    });
   })
   
-})
+  
+  
+  
