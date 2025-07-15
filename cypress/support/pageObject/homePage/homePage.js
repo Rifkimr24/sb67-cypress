@@ -10,7 +10,12 @@ class homePage {
 
     clisksignMenu(){
     cy.get('#login2.nav-link').should('be.visible').click();
+    }
 
+    backToHomePage () {
+    // Kembali ke halaman utama dari halaman detail produk
+      cy.xpath('//a[@class="navbar-brand"]').click(); // Klik "PRODUCT STORE"
+      cy.wait(2000)
     }
 
 }
