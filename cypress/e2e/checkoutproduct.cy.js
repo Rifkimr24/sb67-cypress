@@ -1,10 +1,11 @@
 const homePage = require('../support/pageObject/homePage/homePage');
 const signinPage = require('../support/pageObject/singinPage/signinPage');
+const purchasePage = require('../support/pageObject/purchasePage/purchase');
 const dataUser = require('../support/dataUser/data');
 
 
 describe('checkout product', () => {
-  it('login user', () => {
+  it('purchase order', () => {
       homePage.goTohomePage();
       homePage.clisksignMenu();
       signinPage.assertionsigninMenu();
@@ -12,8 +13,30 @@ describe('checkout product', () => {
       signinPage.inputloginpassword();
       signinPage.clickButtonsignin();
       signinPage.assertionButtonsignin();
+      purchasePage.selectProduct();
+      purchasePage.clickAddToCart();
+      purchasePage.assertiosAddToCart();
+      homePage.backToHomePage();
+      purchasePage.clickCart();
+      purchasePage.clickPlaceOrderButton();
+      purchasePage.assertionButtonPlaceOrder();
+      purchasePage.subbmitForm();
+      purchasePage.assertionSuccesPurchase();
       
+      
+
+    
+
+    
+      
+      
+      
+      
+      
+
     });
+
+  
   })
   
   
